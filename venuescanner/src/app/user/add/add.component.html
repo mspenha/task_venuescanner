@@ -1,3 +1,61 @@
-<p>
-  add works!
-</p>
+<app-nav></app-nav>
+
+<!-- BEGIN BASE-->
+<div id="base">
+
+  <!-- BEGIN OFFCANVAS LEFT -->
+  <div class="offcanvas">
+  </div><!--end .offcanvas-->
+  <!-- END OFFCANVAS LEFT -->
+  <!-- BEGIN CONTENT-->
+  <div id="content">
+    <section>
+      <div class="section-header">
+        <ol class="breadcrumb">
+          <li class="active">Add new user</li>
+        </ol>
+      </div>
+      <div class="section-body contain-lg">
+
+        <!-- BEGIN BASIC VALIDATION -->
+        <div class="row">
+
+          <div class="col-md-12">
+            <form class="form form-validate floating-label" novalidate="novalidate">
+              <div class="card">
+                <div class="card-body">
+                  <div class="form-group">
+                    <input type="text" class="form-control" id="firstname" name="firstname" required data-rule-minlength="2">
+                    <label for="firstname">Firstname</label>
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control" id="surname" name="surname" required data-rule-minlength="2">
+                    <label for="surname">Surname</label>
+                  </div>
+                  <div class="form-group">
+                    <input type="email" class="form-control" id="Email1" name="Email1" required>
+                    <label for="Email1">Email</label>
+                  </div>
+                  <div class="form-group">
+                    <input type="password" class="form-control" id="Password1" name="Password1" required data-rule-minlength="5">
+                    <label for="Password1">Password</label>
+                  </div>
+                </div><!--end .card-body -->
+                <div class="card-actionbar">
+                  <div class="card-actionbar-row">
+                    <button type="submit" class="btn ink-reaction btn-raised btn-primary active">Save</button>
+                  </div>
+                </div><!--end .card-actionbar -->
+              </div><!--end .card -->
+            </form>
+          </div><!--end .col -->
+        </div><!--end .row -->
+        <!-- END BASIC VALIDATION -->
+
+      </div><!--end .section-body -->
+    </section>
+  </div><!--end #content-->
+  <!-- END CONTENT -->
+</div>
+
+<app-sidebar></app-sidebar>

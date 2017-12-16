@@ -5,10 +5,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { LoginComponent } from './../login/login.component';
 import { ListComponent } from './../user/list/list.component';
+import { AddComponent } from './../user/add/add.component';
 
 const route: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'user/new', component: ListComponent }
+  { path: 'user/list', component: ListComponent },
+  { path: 'user/new', component: AddComponent },
 ];
 
 @NgModule({

@@ -14,4 +14,5 @@ use Illuminate\Http\Request;
 */
 
 Route::get('/user/list', 'UserController@listUsers');
+Route::get('/user/{id}/delete', 'UserController@deleteUser');
 Route::post('/user/new', 'UserController@newUser');

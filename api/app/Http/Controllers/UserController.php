@@ -27,4 +27,9 @@ class UserController extends Controller
         return $this->users->saveUser($data);
     }
 
+    public function deleteUser($id)
+    {
+        return $this->users->deleteUser($id);
+    }
+
 }

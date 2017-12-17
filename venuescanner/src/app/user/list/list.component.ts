@@ -13,7 +13,7 @@ import 'rxjs/add/operator/toPromise';
 })
 export class ListComponent implements OnInit {
 
-  users: Users[];
+  users = [];
 
   constructor(private http: HttpClient) {  }
 
@@ -21,6 +21,14 @@ export class ListComponent implements OnInit {
     this.http.get<any>('http://127.0.0.1:8000/api/user/list').subscribe(data => {
       this.users = data;
     });
+  }
+
+  deleteUser(u) {
+    if(confirm("Are you sure to delete " + u.firstname+" "+ u.surname + " ?")) {
+      this.http.get<any>('http://127.0.0.1:8000/api/user/'+ u.id +'/delete').subscribe(data => {
+        this.users.pop(u);
+      });
+    }
   }
 
 }

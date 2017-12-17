@@ -1,16 +1,18 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
-import 'rxjs/add/operator/map';
+import { HttpClient } from '@angular/common/http';
+import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/toPromise';
+import { Observable } from 'rxjs/Observable';
+import { Users } from './../interfaces/user.model';
+
 
 @Injectable()
 export class UserService {
 
-  constructor(private http: Http) { }
+  users: Users[];
 
-  getUsers(){
-    return this.http
-      .get('http://127.0.0.1:8000/api/user/list')
-      .map(response => response.json());
-  }
+  constructor(private http: HttpClient) { }
+
+
 
 }

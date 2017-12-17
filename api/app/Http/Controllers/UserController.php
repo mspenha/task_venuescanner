@@ -24,7 +24,7 @@ class UserController extends Controller
 
     public function newUser(Request $data)
     {
-        return $this->users->saveUser($data );
+        return $this->users->saveUser($data);
     }
 
 }

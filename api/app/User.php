@@ -54,14 +54,14 @@ class User extends Authenticatable
     {
         try {
 
-            $users = User::create([
+             User::create([
                 'firstname' => $data["firstname"],
                 'surname' => $data["surname"],
                 'email' => $data["email"],
-                'password' => bcrypt($data["password"])
+                'password' => bcrypt($data["password"]),
             ]);
 
-            return response()->json(['success!'], 200);
+            return response()->json(['success'], 200);
 
         }catch (Exception $exception){
             return $exception;

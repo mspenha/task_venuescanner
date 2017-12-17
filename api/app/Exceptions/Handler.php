@@ -4,6 +4,7 @@ namespace App\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Database\QueryException as QueryExceptionHandler;
 
 class Handler extends ExceptionHandler
 {
@@ -46,8 +47,15 @@ class Handler extends ExceptionHandler
      * @param  \Exception  $exception
      * @return \Illuminate\Http\Response
      */
-    public function render($request, Exception $exception)
+    public function render($request, Exception $e)
     {
-        return parent::render($request, $exception);
+        if($e instanceof QueryExceptionHandler) {
+            if($e->getCode() == 23000)
+                return response()->json(['error' => $e->getCode()]);
+            else
+                return response()->json(['error' => $e->getCode()]);
+        }
+
+        return parent::render($request, $e);
     }
 }

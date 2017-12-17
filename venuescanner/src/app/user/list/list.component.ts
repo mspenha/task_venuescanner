@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from './../../services/user.service';
+import { Users } from './../../interfaces/user.model';
+import { HttpClient } from '@angular/common/http';
+import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/toPromise';
 
 @Component({
   selector: 'app-list',
@@ -11,23 +15,13 @@ export class ListComponent implements OnInit {
 
   users: Users[];
 
-  constructor(private usersService: UserService) {
-    this.usersService.getUsers().subscribe(
-        users => {this.users = users}
-    );
-
-  }
+  constructor(private http: HttpClient) {  }
 
   ngOnInit() {
+    this.http.get<any>('http://127.0.0.1:8000/api/user/list').subscribe(data => {
+      this.users = data;
+    });
   }
 
 }
 
-interface Users{
-  id: number,
-  firstname: string,
-  surname: string,
-  email: string,
-  created_at: string,
-  updated_at: string,
-}

@@ -13,6 +13,7 @@ import 'rxjs/add/operator/toPromise';
 export class ListComponent implements OnInit {
 
   users = [];
+  removeIndex: number;
 
   constructor(private http: HttpClient) {  }
 
@@ -24,8 +25,11 @@ export class ListComponent implements OnInit {
 
   deleteUser(u) {
     if (confirm('Are you sure to delete ' + u.firstname + ' ' + u.surname + ' ?')) {
-      this.http.get<any>('http://127.0.0.1:8000/api/user/' + u.id + '/delete').subscribe(data => {
-         this.users.pop(u);
+      this.http.get('http://127.0.0.1:8000/api/user/' + u.id + '/delete').subscribe(data => {
+        this.removeIndex = this.users.map(function(item) { return item.id; }).indexOf(u.id);
+
+        // remove object
+        this.users.splice(this.removeIndex, 1);
       });
     }
   }

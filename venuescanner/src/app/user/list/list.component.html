@@ -30,7 +30,7 @@
             <td>{{ u.surname }}</td>
             <td>{{ u.email }}</td>
             <td class="text-right">
-              <button type="button" class="btn btn-icon-toggle" data-toggle="tooltip" data-placement="top" data-original-title="Edit"><i class="fa fa-pencil"></i></button>
+              <button [routerLink]="['/user/edit/', u.id]" type="button" class="btn btn-icon-toggle" data-toggle="tooltip" data-placement="top" data-original-title="Edit"><i class="fa fa-pencil"></i></button>
               <button (click)="deleteUser(u)"  type="button" class="btn btn-icon-toggle" data-toggle="tooltip" data-placement="top" data-original-title="Delete"><i class="fa fa-trash-o"></i></button>
             </td>
           </tr>

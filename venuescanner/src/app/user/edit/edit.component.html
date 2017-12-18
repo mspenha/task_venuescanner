@@ -1,3 +1,66 @@
-<p>
-  edit works!
-</p>
+<app-nav></app-nav>
+
+<!-- BEGIN BASE-->
+<div id="base">
+
+  <!-- BEGIN OFFCANVAS LEFT -->
+  <div class="offcanvas">
+  </div><!--end .offcanvas-->
+  <!-- END OFFCANVAS LEFT -->
+  <!-- BEGIN CONTENT-->
+  <div id="content">
+    <section>
+      <div class="section-header">
+        <ol class="breadcrumb">
+          <li class="active">Edit user</li>
+        </ol>
+      </div>
+      <div class="section-body contain-lg">
+
+        <!-- BEGIN BASIC VALIDATION -->
+
+        <div class="col-md-12">
+
+          <div class="row">
+
+            <div *ngIf="errorAlert" class="alert alert-danger" role="alert">
+              <strong>Error:</strong> {{ errorMessage }}
+            </div>
+            <!--<div *ngIf="successAlert" class="alert alert-success" role="alert">
+              <strong>Success:</strong> {{ successMessage }}
+            </div> -->
+
+            <form class="form form-validate" novalidate="novalidate">
+              <div class="card">
+                <div class="card-body">
+                  <div class="form-group">
+                    <input type="text" class="form-control" id="firstname" [(ngModel)]="user.firstname" name="firstname" ngClass="ng-touched" required data-rule-minlength="2">
+                    <label for="firstname">Firstname</label>
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control" id="surname" [(ngModel)]="user.surname" name="surname" required data-rule-minlength="2">
+                    <label for="surname">Surname</label>
+                  </div>
+                  <div class="form-group">
+                    <input type="email" class="form-control" id="Email1" [(ngModel)]="user.email" name="email" required>
+                    <label for="Email1">Email</label>
+                  </div>
+                </div><!--end .card-body -->
+                <div class="card-actionbar">
+                  <div class="card-actionbar-row">
+                    <button type="submit" class="btn ink-reaction btn-raised btn-primary active" (click)="onSubmit(user)" >Save</button>
+                  </div>
+                </div><!--end .card-actionbar -->
+              </div><!--end .card -->
+            </form>
+          </div><!--end .col -->
+        </div><!--end .row -->
+        <!-- END BASIC VALIDATION -->
+
+      </div><!--end .section-body -->
+    </section>
+  </div><!--end #content-->
+  <!-- END CONTENT -->
+</div>
+
+<app-sidebar></app-sidebar>

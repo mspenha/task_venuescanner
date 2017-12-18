@@ -6,6 +6,10 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Mockery\Exception;
 
+/**
+ * Class User
+ * @package App
+ */
 class User extends Authenticatable
 {
     use Notifiable;
@@ -44,12 +48,19 @@ class User extends Authenticatable
         ]);
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Collection|static[]
+     */
     public function listUsers()
     {
         $users = User::all();
         return $users;
     }
 
+    /**
+     * @param $data
+     * @return \Exception|\Illuminate\Http\JsonResponse|Exception
+     */
     public function saveUser($data)
     {
         try {
@@ -68,10 +79,32 @@ class User extends Authenticatable
         }
     }
 
+    public function editUser($data)
+    {
+        $user = User::find($data["id"]);
+
+        $user->firstname = $data["firstname"];
+        $user->surname = $data["surname"];
+        $user->email = $data["email"];
+
+        $user->save();
+
+        return response()->json(['success'], 200);
+
+    }
+
+    /**
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function deleteUser($id){
         $user = User::find($id);
         $user->delete();
         return response()->json(['success'], 200);
     }
 
+    public function getUserById($id){
+        $user = User::find($id);
+        return response()->json($user, 200);
+    }
 }

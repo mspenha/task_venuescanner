@@ -24,9 +24,7 @@ export class AddComponent implements OnInit {
   }
 
   onSubmit(users) {
-    console.log(users);
     this.http.post<any>('http://127.0.0.1:8000/api/user/new', users).subscribe(data => {
-      console.log(data);
       if (data.error === '23000') {
         this.errorAlert = true;
         this.errorMessage = 'This email is already being used';

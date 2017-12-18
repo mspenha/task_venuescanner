@@ -13,6 +13,10 @@ use Illuminate\Http\Request;
 |
 */
 
+
+
 Route::get('/user/list', 'UserController@listUsers');
 Route::get('/user/{id}/delete', 'UserController@deleteUser');
+Route::get('/user/{id}/get', 'UserController@getUserbyId');
 Route::post('/user/new', 'UserController@newUser');
+Route::put('/user/edit', 'UserController@editUser');

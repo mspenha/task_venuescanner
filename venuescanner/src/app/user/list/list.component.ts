@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from './../../services/user.service';
-import { Users } from './../../interfaces/user.model';
 import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/toPromise';
@@ -24,9 +23,9 @@ export class ListComponent implements OnInit {
   }
 
   deleteUser(u) {
-    if(confirm("Are you sure to delete " + u.firstname+" "+ u.surname + " ?")) {
-      this.http.get<any>('http://127.0.0.1:8000/api/user/'+ u.id +'/delete').subscribe(data => {
-        this.users.pop(u);
+    if (confirm('Are you sure to delete ' + u.firstname + ' ' + u.surname + ' ?')) {
+      this.http.get<any>('http://127.0.0.1:8000/api/user/' + u.id + '/delete').subscribe(data => {
+         this.users.pop(u);
       });
     }
   }

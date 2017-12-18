@@ -6,11 +6,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './../login/login.component';
 import { ListComponent } from './../user/list/list.component';
 import { AddComponent } from './../user/add/add.component';
+import { EditComponent } from './../user/edit/edit.component';
 
 const route: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'user/list', component: ListComponent },
   { path: 'user/new', component: AddComponent },
+  { path: 'user/edit/:id', component: EditComponent },
+  { path: '', redirectTo: 'user/list', pathMatch: 'full' },
 ];
 
 @NgModule({

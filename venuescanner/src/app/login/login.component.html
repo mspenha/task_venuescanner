@@ -2,9 +2,13 @@
 <section class="section-account">
   <div class="spacer"></div>
   <div class="card contain-sm">
+    <div class="alert alert-danger" *ngIf="erroCredentials">
+      <button type="button" aria-hidden="true" class="close">×</button>
+      <span><b> Error - </b>User or password wrongs!</span>
+    </div>
     <div class="card-body">
       <div class="row">
-        <div class="col-sm-6">
+        <div class="col-sm-12">
           <br/>
           <span class="text-lg text-bold text-primary">LOGIN</span>
           <br/><br/>
@@ -25,12 +29,7 @@
             </div><!--end .row -->
           </form>
         </div><!--end .col -->
-        <div class="col-sm-5 col-sm-offset-1 text-center">
-          <br><br>
-          <p>
-            <a href="#" class="btn btn-block btn-raised btn-info"><i class="fa fa-google pull-left"></i>Login with Google</a>
-          </p>
-        </div><!--end .col -->
+
       </div><!--end .row -->
     </div><!--end .card-body -->
   </div><!--end .card -->

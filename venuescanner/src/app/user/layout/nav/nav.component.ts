@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
 
 
 @Component({
@@ -31,6 +32,14 @@ export class NavComponent implements OnInit {
     this.http.get<any>('http://127.0.0.1:8000/api/auth/logout', httpOptions).subscribe(data => {
       localStorage.clear();
       this.router.navigate(['login']);
-    });
+    },
+    (errorResponse: HttpErrorResponse) => {
+      if (errorResponse.status === 401) {
+        this.router.navigate(['login']);
+        localStorage.clear();
+      }
+    }
+
+    );
   }
 }

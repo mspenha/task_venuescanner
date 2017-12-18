@@ -25,14 +25,11 @@
         <li class="dropdown">
           <a href="javascript:void(0);" class="dropdown-toggle ink-reaction" data-toggle="dropdown">
             <span class="profile-info">
-              Daniel Johnson
-              <small>Administrator</small>
+              {{ user.firstname }} {{ user.surname }}
             </span>
           </a>
           <ul class="dropdown-menu animation-dock">
-            <li><a href="../../html/pages/profile.html">My profile</a></li>
-            <li><a href="../../html/pages/locked.html"><i class="fa fa-fw fa-lock"></i> Lock</a></li>
-            <li><a href="../../html/pages/login.html"><i class="fa fa-fw fa-power-off text-danger"></i> Logout</a></li>
+            <li><a href="../../html/pages/login.html" (click)="logout($event)"><i class="fa fa-fw fa-power-off text-danger"></i> Logout</a></li>
           </ul><!--end .dropdown-menu -->
         </li><!--end .dropdown -->
       </ul><!--end .header-nav-profile -->

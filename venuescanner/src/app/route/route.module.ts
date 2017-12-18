@@ -8,11 +8,13 @@ import { ListComponent } from './../user/list/list.component';
 import { AddComponent } from './../user/add/add.component';
 import { EditComponent } from './../user/edit/edit.component';
 
+import { AuthGuard } from './../guard/auth.guard';
+
 const route: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'user/list', component: ListComponent },
-  { path: 'user/new', component: AddComponent },
-  { path: 'user/edit/:id', component: EditComponent },
+  { path: 'user/list', component: ListComponent, canActivate: [AuthGuard] },
+  { path: 'user/new', component: AddComponent, canActivate: [AuthGuard] },
+  { path: 'user/edit/:id', component: EditComponent, canActivate: [AuthGuard] },
   { path: '', redirectTo: 'user/list', pathMatch: 'full' },
 ];
 

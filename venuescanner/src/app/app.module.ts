@@ -13,7 +13,7 @@ import { SidebarComponent } from './user/layout/sidebar/sidebar.component';
 import { NavComponent } from './user/layout/nav/nav.component';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
-
+import { AuthGuard } from './guard/auth.guard';
 
 @NgModule({
   declarations: [
@@ -33,7 +33,7 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

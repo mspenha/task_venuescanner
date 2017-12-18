@@ -8,19 +8,19 @@
           <br/>
           <span class="text-lg text-bold text-primary">LOGIN</span>
           <br/><br/>
-          <form class="form floating-label" action="../../html/dashboards/dashboard.html" accept-charset="utf-8" method="post">
+          <form class="form floating-label" accept-charset="utf-8" method="post">
             <div class="form-group">
-              <input type="text" class="form-control" id="email" name="email">
+              <input type="text" class="form-control" [(ngModel)]="user.email" id="email" name="email">
               <label for="email">Email</label>
             </div>
             <div class="form-group">
-              <input type="password" class="form-control" id="password" name="password">
+              <input type="password" class="form-control" [(ngModel)]="user.password" id="password" name="password">
               <label for="password">Password</label>
             </div>
             <br/>
             <div class="row">
               <div class="col-xs-6 text-right">
-                <button class="btn btn-primary btn-raised" type="submit">Login</button>
+                <button class="btn btn-primary btn-raised" (click)="onSubmit(user)"  type="submit">Login</button>
               </div><!--end .col -->
             </div><!--end .row -->
           </form>
